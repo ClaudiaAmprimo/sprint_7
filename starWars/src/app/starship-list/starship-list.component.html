@@ -1,0 +1,10 @@
+<p>starship-list works!</p>
+
+@if (starwarsResults$ | async; as resultObject){
+  <ul>
+    @for(item of resultObject.results; track item.name){
+      <h3>{{item.name}}</h3>
+      <p>{{item.model}}</p>
+    }
+  </ul>
+}
