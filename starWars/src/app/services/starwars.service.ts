@@ -11,7 +11,6 @@ export class StarwarsService {
   private baseUrl: string = 'https://swapi.dev/api/starships/?page=1';
 
   httpClient = inject(HttpClient)
-  // constructor(private http: HttpClient) { }
 
   getStarshipsList(): Observable<StarwarsResults> {
     return  this.httpClient.get<StarwarsResults>(this.baseUrl);

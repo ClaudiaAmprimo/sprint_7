@@ -1,0 +1,83 @@
+.logo{
+  width: 140px;
+}
+
+.text-navbar {
+  color: #d5d5d5;
+}
+
+.logo-redes{
+  width: 16px;
+  height: auto;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+.navbar-nav a{
+  color: #eaeaea;
+}
+
+.navbar {
+  justify-content: space-between;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+.logoStarWars {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.custom-toggler-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+@media (max-width: 767.98px) {
+  .logo{
+    max-width: 100px;
+  }
+
+  .navbar-collapse {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin-bottom: 10px;
+  }
+
+  .custom-toggler-icon {
+    width: 1em;
+    height: 1em;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo{
+    max-width: 80px;
+  }
+
+  .custom-toggler-icon {
+    width: 0.8em;
+    height: 0.8em;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 8px;
+  }
+}

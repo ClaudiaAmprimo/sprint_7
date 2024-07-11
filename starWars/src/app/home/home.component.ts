@@ -4,7 +4,7 @@ import { StarshipListComponent } from '../starship-list/starship-list.component'
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [StarshipListComponent],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

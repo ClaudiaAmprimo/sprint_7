@@ -1,10 +1,12 @@
-<p>starship-list works!</p>
-
+<div class="container text-starshipList mt-4">
 @if (starwarsResults$ | async; as resultObject){
   <ul>
     @for(item of resultObject.results; track item.name){
-      <h3>{{item.name}}</h3>
-      <p>{{item.model}}</p>
+      <div class="m-4 starship-list-result">
+        <h4>{{item.name}}</h4>
+        <p>{{item.model}}</p>
+      </div>
     }
   </ul>
 }
+</div>
