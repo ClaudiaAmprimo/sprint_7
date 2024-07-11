@@ -1,6 +1,8 @@
 export interface Starwars {
+  id: number;
   name: string;
-  model: string
+  model: string;
+  url: string
 }
 
 export interface StarwarsResults {

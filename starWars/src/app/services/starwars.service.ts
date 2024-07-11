@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { StarwarsResults } from '../interfaces/starwars';
+import { Starwars, StarwarsResults } from '../interfaces/starwars';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,19 @@ import { StarwarsResults } from '../interfaces/starwars';
 export class StarwarsService {
 
   private baseUrl: string = 'https://swapi.dev/api/starships/?page=1';
+  private imageBaseUrl: string = 'https://starwars-visualguide.com/assets/img/starships/';
 
   httpClient = inject(HttpClient)
 
   getStarshipsList(): Observable<StarwarsResults> {
     return  this.httpClient.get<StarwarsResults>(this.baseUrl);
+  }
+
+  getStarshipDetails(id: number): Observable<Starwars> {
+    return this.httpClient.get<Starwars>(`${this.baseUrl}${id}/`);
+  }
+
+  getStarshipImageUrl(id: number): string {
+    return `${this.imageBaseUrl}${id}.jpg`;
   }
 }

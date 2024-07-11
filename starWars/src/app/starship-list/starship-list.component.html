@@ -2,9 +2,9 @@
 @if (starwarsResults$ | async; as resultObject){
   <ul>
     @for(item of resultObject.results; track item.name){
-      <div class="m-4 starship-list-result">
-        <h4>{{item.name}}</h4>
-        <p>{{item.model}}</p>
+      <div class="m-4 starship-list-result" (click)="onSelectStarship(item)">
+          <h4 class="mt-2 ms-2">{{item.name}}</h4>
+          <p class="mt-2 ms-2">{{item.model}}</p>
       </div>
     }
   </ul>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Starwars } from '../interfaces/starwars';
 
 @Component({
   selector: 'app-starship-details',
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './starship-details.component.scss'
 })
 export class StarshipDetailsComponent {
-
+  @Input() starship?: Starwars;
+  @Input() imageUrl?: string;
 }

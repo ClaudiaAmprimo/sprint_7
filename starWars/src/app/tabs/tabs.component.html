@@ -12,7 +12,11 @@
         <app-home></app-home>
       </div>
       <div class="tab-pane fade" id="starship-tab-pane" role="tabpanel" aria-labelledby="starship-tab" tabindex="0">
-        <app-starship-list></app-starship-list>
+        <!-- <app-starship-list></app-starship-list> -->
+        <app-starship-list (starshipSelected)="onStarshipSelected($event)"></app-starship-list>
+        @if(selectedStarship){
+          <app-starship-details [starship]="selectedStarship" [imageUrl]="selectedImageUrl"></app-starship-details>
+        }
       </div>
     </div>
 </div>
