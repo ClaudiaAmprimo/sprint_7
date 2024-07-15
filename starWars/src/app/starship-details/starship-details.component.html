@@ -1,9 +1,28 @@
-<div>
+<!-- <div>
   @if(starship){
-    <!-- <h1>{{ starship.name }}</h1>
-    <p>Model: {{ starship.model }}</p> -->
+    <h1>{{ starship.name }}</h1>
+    <p>Model: {{ starship.model }}</p>
     @if(imageUrl){
       <img [src]="imageUrl" alt="{{ starship.name }}">
     }
+  }
+</div> -->
+
+<div class="container-starship">
+  @if(starship) {
+    <div class="starship-image">
+      @if(imageUrl) {
+        <img [src]="imageUrl" alt="{{ starship.name }}" style="max-width: 100%;">
+      }
+    </div>
+    <div class="starship-details">
+      <h1>{{ starship.name }}</h1>
+      <p>Model: {{ starship.model }}</p>
+      <p>Cost in Credits: {{ starship.cost_in_credits }}</p>
+      <p>Atmosferic Speed: {{ starship.max_atmosphering_speed }}</p>
+      <p>Manufacturer: {{ starship.manufacturer }}</p>
+      <p>Length: {{ starship.length }}</p>
+      <p>Crew: {{ starship.crew }}</p>
+    </div>
   }
 </div>

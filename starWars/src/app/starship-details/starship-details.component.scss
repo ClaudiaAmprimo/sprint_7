@@ -1,0 +1,36 @@
+.container-starship {
+  display: flex;
+  align-items: center;
+  color: #a4a4a4;
+  padding: 20px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.starship-image {
+  flex: 1;
+  img {
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.starship-details {
+  flex: 1;
+  padding: 20px;
+  background-color: #202020;
+  border-left: 2px solid rgb(138, 33, 33);
+
+  @media (max-width: 768px) {
+    border-left: none;
+    border-top: 2px solid rgb(138, 33, 33);
+    width: 100%;
+    text-align: center;
+  }
+}

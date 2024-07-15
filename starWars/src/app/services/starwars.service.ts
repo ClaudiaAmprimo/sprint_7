@@ -8,13 +8,13 @@ import { Starwars, StarwarsResults } from '../interfaces/starwars';
 })
 export class StarwarsService {
 
-  private baseUrl: string = 'https://swapi.dev/api/starships/?page=1';
+  private baseUrl: string = 'https://swapi.dev/api/starships/';
   private imageBaseUrl: string = 'https://starwars-visualguide.com/assets/img/starships/';
 
   httpClient = inject(HttpClient)
 
   getStarshipsList(): Observable<StarwarsResults> {
-    return  this.httpClient.get<StarwarsResults>(this.baseUrl);
+    return this.httpClient.get<StarwarsResults>(`${this.baseUrl}?page=1`);
   }
 
   getStarshipDetails(id: number): Observable<Starwars> {
@@ -22,6 +22,6 @@ export class StarwarsService {
   }
 
   getStarshipImageUrl(id: number): string {
-   return `${this.imageBaseUrl}${id}.jpg`;
+    return `${this.imageBaseUrl}${id}.jpg`;
   }
 }

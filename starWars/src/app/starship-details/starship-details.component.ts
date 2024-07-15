@@ -1,14 +1,27 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Starwars } from '../interfaces/starwars';
+import { ActivatedRoute } from '@angular/router';
+import { StarwarsService } from '../services/starwars.service';
 
 @Component({
   selector: 'app-starship-details',
   standalone: true,
-  imports: [],
   templateUrl: './starship-details.component.html',
-  styleUrl: './starship-details.component.scss'
+  styleUrls: ['./starship-details.component.scss']
 })
-export class StarshipDetailsComponent {
-  @Input() starship?: Starwars;
-  @Input() imageUrl?: string;
+export class StarshipDetailsComponent implements OnInit {
+  starship?: Starwars;
+  imageUrl?: string;
+
+  constructor(private route: ActivatedRoute, private service: StarwarsService) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const id = +params['id'];
+      this.service.getStarshipDetails(id).subscribe(starship => {
+        this.starship = starship;
+        this.imageUrl = this.service.getStarshipImageUrl(id);
+      });
+    });
+  }
 }
