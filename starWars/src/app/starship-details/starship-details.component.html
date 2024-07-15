@@ -1,14 +1,7 @@
-<!-- <p>starship-details works!</p>
-<div *if="starship">
-  <h1>{{ starship.name }}</h1>
-  <p>Model: {{ starship.model }}</p>
-  <img *if="imageUrl" [src]="imageUrl" alt="{{ starship.name }}">
-</div> -->
-
 <div>
   @if(starship){
-    <h1>{{ starship.name }}</h1>
-    <p>Model: {{ starship.model }}</p>
+    <!-- <h1>{{ starship.name }}</h1>
+    <p>Model: {{ starship.model }}</p> -->
     @if(imageUrl){
       <img [src]="imageUrl" alt="{{ starship.name }}">
     }

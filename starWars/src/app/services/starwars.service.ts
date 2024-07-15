@@ -22,6 +22,6 @@ export class StarwarsService {
   }
 
   getStarshipImageUrl(id: number): string {
-    return `${this.imageBaseUrl}${id}.jpg`;
+   return `${this.imageBaseUrl}${id}.jpg`;
   }
 }

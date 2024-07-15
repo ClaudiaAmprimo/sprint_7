@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { StarshipListComponent } from '../starship-list/starship-list.component';
-import { HomeComponent } from '../home/home.component';
+// import { HomeComponent } from '../home/home.component';
 import { Starwars } from '../interfaces/starwars';
 import { StarshipDetailsComponent } from '../starship-details/starship-details.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
   standalone: true,
-  imports: [StarshipListComponent, HomeComponent, StarshipDetailsComponent],
+  imports: [StarshipListComponent, StarshipDetailsComponent, RouterLink],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.scss'
 })
