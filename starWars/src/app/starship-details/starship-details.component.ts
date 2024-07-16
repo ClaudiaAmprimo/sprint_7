@@ -13,6 +13,8 @@ export class StarshipDetailsComponent implements OnInit {
   starship?: Starwars;
   imageUrl?: string;
 
+  private imgPlaceholder: string = 'https://starwars-visualguide.com/assets/img/placeholder.jpg';
+
   constructor(private route: ActivatedRoute, private service: StarwarsService) {}
 
   ngOnInit(): void {
@@ -23,5 +25,9 @@ export class StarshipDetailsComponent implements OnInit {
         this.imageUrl = this.service.getStarshipImageUrl(id);
       });
     });
+  }
+
+  imageError(): void {
+    this.imageUrl = this.imgPlaceholder;
   }
 }

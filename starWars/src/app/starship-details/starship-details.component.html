@@ -1,18 +1,8 @@
-<!-- <div>
-  @if(starship){
-    <h1>{{ starship.name }}</h1>
-    <p>Model: {{ starship.model }}</p>
-    @if(imageUrl){
-      <img [src]="imageUrl" alt="{{ starship.name }}">
-    }
-  }
-</div> -->
-
 <div class="container-starship">
   @if(starship) {
     <div class="starship-image">
       @if(imageUrl) {
-        <img [src]="imageUrl" alt="{{ starship.name }}" style="max-width: 100%;">
+        <img [src]="imageUrl" (error)="imageError()" alt="{{ starship.name }}" style="max-width: 100%;">
       }
     </div>
     <div class="starship-details">
