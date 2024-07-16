@@ -1,12 +1,14 @@
 <div class="container text-starshipList mt-4">
-@if (starwarsResults$ | async; as resultObject){
-  <ul>
-    @for(item of resultObject.results; track item.name){
-      <div class="m-4 starship-list-result" (click)="onSelectStarship(item)">
-          <h4 class="mt-2 ms-2">{{item.name}}</h4>
-          <p class="mt-2 ms-2">{{item.model}}</p>
-      </div>
-    }
-  </ul>
-}
+  @if (starships.length > 0) {
+    <ul>
+      @for (item of starships; track item.name) {
+        <div class="m-4 starship-list-result" (click)="onSelectStarship(item)">
+          <h4 class="mt-2 ms-2">{{ item.name }}</h4>
+          <p class="mt-2 ms-2">{{ item.model }}</p>
+        </div>
+      }
+    </ul>
+  } @if (loading) {
+    <div class="loading-indicator">Cargando...</div>
+  }
 </div>

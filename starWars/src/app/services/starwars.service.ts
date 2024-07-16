@@ -13,8 +13,8 @@ export class StarwarsService {
 
   httpClient = inject(HttpClient)
 
-  getStarshipsList(): Observable<StarwarsResults> {
-    return this.httpClient.get<StarwarsResults>(`${this.baseUrl}?page=1`);
+  getStarshipsList(page: number): Observable<StarwarsResults> {
+    return this.httpClient.get<StarwarsResults>(`${this.baseUrl}?page=${page}`);
   }
 
   getStarshipDetails(id: number): Observable<Starwars> {

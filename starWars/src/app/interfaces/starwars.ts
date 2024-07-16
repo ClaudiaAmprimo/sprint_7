@@ -7,7 +7,8 @@ export interface Starwars {
   max_atmosphering_speed: string;
   manufacturer: string;
   length: string;
-  crew: string
+  crew: string;
+  imageUrl?: string; 
 }
 
 export interface StarwarsResults {
