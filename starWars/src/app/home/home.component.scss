@@ -1,3 +1,35 @@
 .text-home{
   color: #d5d5d5;
 }
+
+.home-title{
+  color: #d5d5d5;
+  margin: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.carousel-caption{
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 120px;
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  .carousel-caption {
+    position: static;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .carousel-caption h2, .carousel-caption p {
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+  .carousel-caption .btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+  .carousel-caption-container {
+    text-align: center;
+    padding: 10px;
+  }
+}
