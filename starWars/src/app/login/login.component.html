@@ -11,13 +11,21 @@
     <div class="form-floating mb-3 m-4">
       <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
+      @if(email.hasError("required") && email.touched){
+        <p class="form-error">Email is required</p>
+      } @else if (email.hasError("email") && email.touched) {
+        <p class="form-error">Email is not valid</p>
+      }
     </div>
     <div class="form-floating m-4">
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
+      @if(password.hasError("required") && password.touched){
+        <p class="form-error">Password is required</p>
+      }
     </div>
     <div class="form-floating m-4">
-      <button type="button" class="btn btn-warning w-100">Log In</button>
+      <button [disabled]="userForm.invalid" class="btn btn-warning w-100">Log In</button>
       </div>
   </div>
 <!-- </div> -->

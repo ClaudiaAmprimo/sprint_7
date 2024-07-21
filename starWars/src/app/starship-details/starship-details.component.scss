@@ -3,7 +3,7 @@
   align-items: center;
   color: #a4a4a4;
   padding: 20px;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
@@ -12,6 +12,8 @@
 
 .starship-image {
   flex: 1;
+  margin-left: 24px;
+  padding: 20px;
   img {
     max-width: 100%;
   }
@@ -24,6 +26,7 @@
 .starship-details {
   flex: 1;
   padding: 20px;
+  margin-right: 24px;
   background-color: #202020;
   border-left: 2px solid rgb(138, 33, 33);
 

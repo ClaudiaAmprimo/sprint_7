@@ -1,4 +1,5 @@
 <!-- <div class="container-fondo"> -->
+<form [formGroup]="userForm" (submit)="handleSubmit()">
   <div class="container register-form">
     <div class="d-flex justify-content-end">
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -7,29 +8,55 @@
       <h4 class="ms-4"><strong>Register to continue</strong></h4>
       <p class="ms-4">Enter your first name, last name, email and password to create an account.</p>
     </div>
-
-      <div class="form-floating mb-3 m-4">
-        <input type="text" class="form-control" id="floatingInput" placeholder="name">
-        <label for="floatingInput">Name</label>
+    @if (alertMessage && alertType === 'success') {
+      <div class="alert alert-success" role="alert">
+        {{ alertMessage }}
       </div>
-      <div class="form-floating mb-3 m-4">
-        <input type="text" class="form-control" id="floatingInput" placeholder="last name">
-        <label for="floatingInput">Last Name</label>
+    }
+    @if (alertMessage && alertType === 'danger') {
+      <div class="alert alert-danger" role="alert">
+        {{ alertMessage }}
       </div>
-      <div class="form-floating mb-3 m-4">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating m-4">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
-      <div class="form-floating m-4">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Repeat your password</label>
-      </div>
-      <div class="form-floating m-4">
-      <button type="button" class="btn btn-warning w-100">Register</button>
-      </div>
+    }
+    <div class="form-floating mb-3 m-4">
+      <input type="text" class="form-control" id="floatingInput1" formControlName="name" placeholder="name">
+      <label for="floatingInput">Name</label>
+      @if(name.hasError("required") && name.touched){
+        <p class="form-error">Name is required</p>
+      } @else if (name.hasError("pattern") && name.touched) {
+        <p class="form-error">Only alphabetic characters are valid</p>
+      }
+    </div>
+    <div class="form-floating mb-3 m-4">
+      <input type="text" class="form-control" id="floatingInput2" formControlName="lastName" placeholder="last name">
+      <label for="floatingInput">Last Name</label>
+      @if(lastName.hasError("required") && lastName.touched){
+        <p class="form-error">Last name is required</p>
+      } @else if (lastName.hasError("pattern") && lastName.touched) {
+        <p class="form-error">Only alphabetic characters are valid</p>
+      }
+    </div>
+    <div class="form-floating mb-3 m-4">
+      <input type="email" class="form-control" id="floatingInput3" formControlName="email" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+      @if(email.hasError("required") && email.touched){
+        <p class="form-error">Email is required</p>
+      } @else if (email.hasError("email") && email.touched) {
+        <p class="form-error">Email is not valid</p>
+      }
+    </div>
+    <div class="form-floating m-4">
+      <input type="password" class="form-control" id="floatingPassword" formControlName="password" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+      @if(password.hasError("required") && password.touched){
+        <p class="form-error">Password is required</p>
+      } @else if (password.hasError("pattern") && password.touched) {
+        <p class="form-error">Password must have at least 8 characters and at least 1 special caracter</p>
+      }
+    </div>
+    <div class="form-floating m-4">
+    <button [disabled]="userForm.invalid" class="btn btn-warning w-100">Register</button>
+    </div>
   </div>
+</form>
 <!-- </div> -->
