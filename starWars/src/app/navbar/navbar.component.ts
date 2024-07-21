@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,21 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit  {
+  isAuthenticated: boolean = false;
 
+  constructor(private router: Router, private authService: AuthService) {}
+
+  ngOnInit() {
+    this.authService.isAuthenticated.subscribe(
+      (isAuthenticated: boolean) => {
+        this.isAuthenticated = isAuthenticated;
+      }
+    );
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']);
+  }
 }

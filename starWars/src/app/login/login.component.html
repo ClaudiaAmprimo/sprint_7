@@ -1,4 +1,4 @@
-<!-- <div class="container-fondo"> -->
+<form [formGroup]="userForm" (submit)="handleLogin()">
   <div class="container register-form">
     <div class="d-flex justify-content-end">
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -7,9 +7,14 @@
       <h4 class="ms-4"><strong>Enter your email to continue</strong></h4>
       <p class="ms-4">Log in to Star Wars with your MyDisney account. If you don't have one, you will be prompted to create one.</p>
     </div>
+    @if(alertMessage){
+      <div class="alert alert-warning" role="alert">
+        {{alertMessage}}
+      </div>
+    }
 
     <div class="form-floating mb-3 m-4">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
       <label for="floatingInput">Email address</label>
       @if(email.hasError("required") && email.touched){
         <p class="form-error">Email is required</p>
@@ -18,7 +23,7 @@
       }
     </div>
     <div class="form-floating m-4">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
       <label for="floatingPassword">Password</label>
       @if(password.hasError("required") && password.touched){
         <p class="form-error">Password is required</p>
@@ -28,4 +33,4 @@
       <button [disabled]="userForm.invalid" class="btn btn-warning w-100">Log In</button>
       </div>
   </div>
-<!-- </div> -->
+</form>

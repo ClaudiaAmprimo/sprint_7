@@ -3,6 +3,8 @@ import { User } from '../interfaces/user';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -22,7 +24,7 @@ export class RegisterComponent implements OnInit  {
   alertType: 'success' | 'danger' | null = null;
   isAuthenticated: boolean = false;
 
-  constructor(private userService: UserService, private http: HttpClient){
+  constructor(private userService: UserService, private http: HttpClient, private router: Router, private authService: AuthService){
     this.name = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]);
     this.lastName = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]);
     this.email = new FormControl('', [Validators.required, Validators.email]);
@@ -38,46 +40,6 @@ export class RegisterComponent implements OnInit  {
     this.updateUserState();
   }
 
-
-  // handleSubmit() {
-  //   console.log(this.userForm.value);
-  //   if (this.userForm.valid) {
-  //     const user: User = this.userForm.value;
-  //     this.userService.registerUser(user).subscribe(
-  //       (response: User) => {
-  //         console.log('Usuario registrado:', response);
-  //       },
-  //       (error: any) => {
-  //         console.error('Error al registrar usuario:', error);
-  //       }
-  //     );
-  //   }
-  // }
-
-    // handleSubmit() {
-  //   this.alertMessage = null;
-  //   if (this.userForm.valid) {
-  //     const user: User = this.userForm.value;
-  //     const subscriptionAlerts = {
-  //       next: (response: User) => {
-  //         this.alertType = 'success';
-  //         this.alertMessage = 'Successfully registered user';
-  //         this.userForm.reset();
-  //       },
-  //       error: (error: any) => {
-  //         console.error('Error response:', error);
-  //         if (error.status === 400 && error.error && error.error.includes('Email already exists')) {
-  //           this.alertType = 'danger';
-  //           this.alertMessage = 'This email already exists';
-  //         } else {
-  //           console.error('Unexpected error:', error);
-  //         }
-  //       }
-  //     };
-  //     this.userService.registerUser(user).subscribe(subscriptionAlerts);
-  //   }
-  // }
-
   handleSubmit() {
     this.alertMessage = null;
     if (this.userForm.valid) {
@@ -88,9 +50,10 @@ export class RegisterComponent implements OnInit  {
           this.alertMessage = 'Successfully registered user';
           console.log('Usuario registrado:', response);
           console.log('Token de autenticación:', response.accessToken);
-          localStorage.setItem('token', response.accessToken);
+          this.authService.login(response.accessToken);
           this.userForm.reset();
           this.updateUserState();
+          this.router.navigate(['/starships']);
         },
         error: (error: any) => {
           console.error('Error response:', error);
@@ -107,12 +70,15 @@ export class RegisterComponent implements OnInit  {
   }
 
   updateUserState() {
-    const token = localStorage.getItem('token');
-    this.isAuthenticated = !!token;
+    this.authService.isAuthenticated.subscribe(
+      (isAuthenticated: boolean) => {
+        this.isAuthenticated = isAuthenticated;
+      }
+    );
   }
 
   logout() {
-    localStorage.removeItem('token');
+    this.authService.logout();
     this.isAuthenticated = false;
   }
 

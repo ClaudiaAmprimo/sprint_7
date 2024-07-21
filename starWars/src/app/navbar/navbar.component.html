@@ -23,12 +23,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
+            @if (isAuthenticated) {
+              <li class="nav-item">
+                <button (click)="logout()" class="nav-link active ms-20 logout" aria-current="page">LOG OUT</button>
+              </li>
+            } @else {
             <li class="nav-item">
               <a routerLink="/login"class="nav-link active ms-20" aria-current="page">LOG IN</a>
             </li>
             <li class="nav-item">
               <a routerLink="/register" class="nav-link active" aria-current="page">SIGN UP</a>
             </li>
+          }
           </ul>
         </div>
       </div>
