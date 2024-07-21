@@ -48,6 +48,13 @@
       "name": "aa",
       "lastName": "aa",
       "id": 7
+    },
+    {
+      "email": "test7@test.com",
+      "password": "$2a$10$na9BqZ4zst4wghhzyCPhoeHn/abNGLqTmH6emRSagkRcgGMADob8.",
+      "name": "aa",
+      "lastName": "aaa",
+      "id": 8
     }
   ]
 }
