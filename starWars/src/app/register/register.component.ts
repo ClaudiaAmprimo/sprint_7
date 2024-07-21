@@ -82,4 +82,7 @@ export class RegisterComponent implements OnInit  {
     this.isAuthenticated = false;
   }
 
+  closeForm() {
+    this.router.navigate(['/']);
+  }
 }

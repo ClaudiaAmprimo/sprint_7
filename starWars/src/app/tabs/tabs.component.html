@@ -1,10 +1,10 @@
 <div>
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <a routerLink="/" class="nav-link text-tabs" id="home-tab" role="tab" data-bs-toggle="tab" aria-controls="home-tab-pane" aria-selected="true">HOME</a>
+      <a routerLink="/" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }"  class="nav-link text-tabs" id="home-tab" role="tab" data-bs-toggle="tab" aria-controls="home-tab-pane" aria-selected="true">HOME</a>
     </li>
     <li class="nav-item" role="presentation">
-      <a routerLink="/starships" class="nav-link text-tabs" id="starship-tab" role="tab" data-bs-toggle="tab" aria-controls="starship-tab-pane" aria-selected="false">STARSHIPS</a>
+      <a routerLink="/starships" routerLinkActive="active" class="nav-link text-tabs" id="starship-tab" role="tab" data-bs-toggle="tab" aria-controls="starship-tab-pane" aria-selected="false">STARSHIPS</a>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">

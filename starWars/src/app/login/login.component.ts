@@ -50,4 +50,8 @@ export class LoginComponent implements OnInit {
       );
     }
   }
+
+  closeForm() {
+    this.router.navigate(['/']);
+  }
 }

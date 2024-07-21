@@ -1,7 +1,7 @@
 <form [formGroup]="userForm" (submit)="handleLogin()">
   <div class="container register-form">
     <div class="d-flex justify-content-end">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <button (click)="closeForm()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
       <div>
       <h4 class="ms-4"><strong>Enter your email to continue</strong></h4>
