@@ -16,3 +16,12 @@
     </div>
   }
 </div>
+
+@if (starship){
+  <div>
+    <app-pilots [pilotUrls]="starship.pilots"></app-pilots>
+  </div>
+  <div>
+    <app-films [filmUrls]="starship.films"></app-films>
+  </div>
+}

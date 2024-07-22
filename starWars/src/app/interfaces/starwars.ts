@@ -8,7 +8,9 @@ export interface Starwars {
   manufacturer: string;
   length: string;
   crew: string;
-  imageUrl?: string; 
+  imageUrl?: string;
+  pilots: string[];
+  films: string[];
 }
 
 export interface StarwarsResults {
@@ -16,4 +18,17 @@ export interface StarwarsResults {
   next: string;
   previous?: string;
   results: Starwars[]
+}
+
+export interface Pilots {
+  name: string;
+  imageUrl?: string;
+  url: string;
+}
+
+export interface Films {
+  title: string;
+  episode_id: number;
+  imageUrl?: string;
+  url: string;
 }

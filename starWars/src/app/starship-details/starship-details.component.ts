@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Starwars } from '../interfaces/starwars';
 import { ActivatedRoute } from '@angular/router';
 import { StarwarsService } from '../services/starwars.service';
+import { PilotsComponent } from '../pilots/pilots.component';
+import { FilmsComponent } from '../films/films.component';
 
 @Component({
   selector: 'app-starship-details',
   standalone: true,
+  imports: [PilotsComponent, FilmsComponent],
   templateUrl: './starship-details.component.html',
   styleUrls: ['./starship-details.component.scss']
 })

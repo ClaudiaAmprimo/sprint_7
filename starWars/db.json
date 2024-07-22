@@ -55,6 +55,13 @@
       "name": "aa",
       "lastName": "aaa",
       "id": 8
+    },
+    {
+      "email": "claudia@claudia.com",
+      "password": "$2a$10$GT3JtfEoB3rY2SBGd0mSqu9zUbfRmr09Gx3.ckpNSEBOaWoBFFU22",
+      "name": "claudia",
+      "lastName": "amprimo",
+      "id": 9
     }
   ]
 }
