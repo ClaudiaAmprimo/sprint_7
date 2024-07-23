@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
 
       this.userService.loginUser(email, password).subscribe(
         response => {
-          // localStorage.setItem('token', response.accessToken);
           this.authService.login(response.accessToken);
           this.router.navigate(['/starships']);
         },

@@ -62,6 +62,13 @@
       "name": "claudia",
       "lastName": "amprimo",
       "id": 9
+    },
+    {
+      "email": "david@david.com",
+      "password": "$2a$10$kpIU5CudffFBvETPvebKveXETT9EQEIOjJcrhqiwADgBABmJL0pEC",
+      "name": "david",
+      "lastName": "serra",
+      "id": 10
     }
   ]
 }
