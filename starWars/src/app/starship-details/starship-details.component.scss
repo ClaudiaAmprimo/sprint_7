@@ -21,6 +21,13 @@
   @media (max-width: 768px) {
     margin-bottom: 20px;
   }
+
+  @media (min-width: 1368px){
+    margin-left: 150px;
+  }
+  @media (min-width: 1626px){
+    margin-left: 200px;
+  }
 }
 
 .starship-details {
@@ -36,5 +43,12 @@
     width: 100%;
     text-align: center;
     margin-left: 24px;
+  }
+
+  @media (min-width: 1368px){
+    margin-right: 150px;
+  }
+  @media (min-width: 1626px){
+    margin-right: 200px;
   }
 }
