@@ -47,3 +47,22 @@ Al igual que anteriormente, se muestran las tarjetas de las películas en las qu
 - Ejercicio 10:
 
 Implementar tests unitarios para al menos 3 componentes.
+
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
+
+## To clone the repository:
+
+git clone https://github.com/ClaudiaAmprimo/sprint_7.git
+
+## To activate the backend:
+
+npx json-server-auth db.json
+
+## Development server:
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
